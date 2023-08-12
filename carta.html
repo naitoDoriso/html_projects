@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="css.css">
+    <title>Carta ... | PCP</title>
+    <style>
+        body {
+            overflow: auto!important;
+        }
+
+        body > a {
+            display: block;
+            padding: 8px;
+            color: white;
+        }
+
+        .carta {
+            width: 320px;
+            height: 460px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2em auto;
+            position: relative;
+            box-shadow: 0 6px;
+        }
+
+        .rodar {
+            animation: rodar 1s normal forwards ease-in-out;
+        }
+
+        .desrodar {
+            animation: desrodar 1s normal forwards ease-in-out;
+        }
+
+        #certo, #errado {
+            transition: opacity .1s ease-in-out;
+            padding: 8px 16px;
+            border: 0;
+            outline: 0;
+            color: rgba(0,0,0,.5);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color .3s ease-in-out;
+        }
+
+        #certo {
+            margin-right: 10px;
+        }
+
+        #certo:hover {
+            background-color: rgb(96, 255, 96);
+        }
+
+        #errado:hover {
+            background-color: rgb(255, 71, 71);
+        }
+
+        .carta ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            width: fit-content;
+            margin: 20px 40px;
+        }
+
+        #pergunta ul li:hover {
+            background-color: rgba(0,0,0,.1);
+        }
+
+        @keyframes rodar {
+            0% {
+                color: transparent;
+                transform: rotate3d(0, 1, 0, 180deg);
+            }
+            40% {
+                color: transparent;
+            }
+            100% {
+                color: black;
+                transform: rotate3d(0, 1, 0, 360deg);
+            }
+        }
+
+        @keyframes desrodar {
+            0% {
+                color: transparent;
+                transform: rotate3d(0, 1, 0, 180deg);
+            }
+            40% {
+                color: transparent;
+            }
+            100% {
+                color: black;
+                transform: rotate3d(0, 1, 0, 0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../">VOLTAR</a>
+    <div class="carta" style="background-color: #ddd;">
+        <p>Tipo: <span id="tipo">?</span></p>
+        <p id="header" style="margin-top:5em">Pergunta:</p>
+        <p id="pergunta">...</p>
+        <div style="position: absolute; bottom: 0; width: 100%;">
+            <p>ACERTO: <span id="casas+">?</span></p>
+            <p>ERRO: <span id="casas-">?</span></p>
+        </div>
+    </div>
+    <div class="resultado" style="background-color: wheat; text-align: center;">
+        <p></p>
+    </div>
+    <script>
+        if (!localStorage.getItem("difficulty")) location.replace('../');
+        const difficulty = localStorage.getItem("difficulty");
+        let divc = document.querySelector("div.carta");
+        let i = 0;
+
+        const tipo = document.getElementById("tipo");
+        const casasA = document.getElementById("casas+");
+        const casasR = document.getElementById("casas-");
+        const pergunta = document.getElementById("pergunta");
+        const header = document.getElementById("header");
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.responseType = 'json';
+        let json = {};
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                json = this.response;
+            }
+        }
+        xhttp.open("GET", "../db.json", true);
+        xhttp.send();
+        
+        let rand_question = {};
+        let get_pergunta = (is_hard=false) => {
+            setTimeout(() => {
+                let rand = Math.floor(Math.random()*json[difficulty].length);
+                rand_question = json[difficulty][rand];
+
+                if (is_hard == false) {
+                    if (rand_question.type == 'alt') {
+                        header.innerHTML = "<b>Pergunta Objetiva:</b>";
+                        pergunta.innerHTML = rand_question.question+'<br>'+`
+                        <ul>
+                            <li>A. ${rand_question.a}</li>
+                            <li>B. ${rand_question.b}</li>
+                            <li>C. ${rand_question.c}</li>
+                            <li>D. ${rand_question.d}</li>
+                        </ul>`;
+                    } else {
+                        header.innerHTML = "<b>Pergunta Discursiva:</b>";
+                        pergunta.textContent = rand_question.question;
+                    }
+                } else {
+                    if (localStorage.getItem("type_hard") == 'alt') {
+                        rand = Math.floor(Math.random()*json[difficulty].filter((x)=>x.type=='alt').length);
+                        rand_question = json[difficulty].filter((x)=>x.type=='alt')[rand];
+
+                        header.innerHTML = "<b>Pergunta Objetiva:</b>";
+                        pergunta.innerHTML = rand_question.question+'<br>'+`
+                        <ul>
+                            <li>A. ${rand_question.a}</li>
+                            <li>B. ${rand_question.b}</li>
+                            <li>C. ${rand_question.c}</li>
+                            <li>D. ${rand_question.d}</li>
+                        </ul>`;
+                    } else {
+                        rand = Math.floor(Math.random()*json[difficulty].filter((x)=>x.type=='calc').length);
+                        rand_question = json[difficulty].filter((x)=>x.type=='calc')[rand];
+
+                        header.innerHTML = "<b>Pergunta Final (Cálculo):</b>";
+                        pergunta.textContent = rand_question.question;
+                    }
+                }
+            }, 1000);
+        }
+
+        let get_resposta = () => {
+            setTimeout(() => {
+                document.getElementById("answer").textContent = rand_question.correct;
+            }, 1000);
+        }
+
+        if (difficulty == 'easy') {
+            document.title = 'Carta Fácil | PCP';
+            tipo.textContent = 'FÁCIL';
+            casasA.textContent = '+0 CASAS';
+            casasR.textContent = '-1 CASA';
+            get_pergunta();
+        } else if (difficulty == 'medium') {
+            document.title = 'Carta Médio | PCP';
+            tipo.textContent = 'MÉDIO';
+            casasA.textContent = '+0 CASAS';
+            casasR.textContent = '-2 CASAS';
+            get_pergunta();
+        } else if (difficulty == 'hard') {
+            document.title = 'Carta Difícil | PCP';
+            tipo.textContent = 'DIFÍCIL';
+            casasA.textContent = '+0 CASAS';
+            casasR.textContent = '-3 CASAS';
+            get_pergunta(true);
+        } else {
+            location.replace('../')
+        }
+
+        let descartar = () => {
+            if (localStorage.getItem("descartadas")) {
+
+            } else {
+                let card = {"easy": [], "medium": [], "hard": []}
+                localStorage.setItem("descartadas");
+            }
+        }
+
+        let responder = () => {
+            divc.className = 'carta rodar';
+            divc.innerHTML = `
+                <p style="margin-top:5em"><b>Resposta correta:</b></p>
+                <p id="answer" style="margin-top:4em">...</p>\n
+                <button id="certo"><span class="material-symbols-outlined">done</span></button>\n
+                <button id="errado"><span class="material-symbols-outlined">close</span></button>`;
+            get_resposta();
+            
+            document.getElementById("certo").style.opacity = 0;
+            document.getElementById("errado").style.opacity = 0;
+            setTimeout(()=>{
+                document.getElementById("certo").style.opacity = 1;
+                document.getElementById("errado").style.opacity = 1;
+            },700);
+            document.querySelector("#certo").addEventListener('click', (e)=>{
+                e.preventDefault();
+                e.stopPropagation();
+                document.querySelector("div.resultado p").innerText = 'AVANCE 1 CASA';
+                document.querySelector("div.resultado p").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                document.getElementById("certo").setAttribute("disabled","true");
+                document.getElementById("errado").setAttribute("disabled","true");
+                setTimeout(()=>{
+                    document.querySelector("div.resultado p").innerText = '';
+                    document.getElementById("certo").removeAttribute("disabled");
+                    document.getElementById("errado").removeAttribute("disabled");
+                    divc.className = 'carta desrodar';
+                    divc.innerHTML = frente;
+                },8000);
+
+                descartar();
+            });
+            document.querySelector("#errado").addEventListener('click', (e)=>{
+                e.preventDefault();
+                e.stopPropagation();
+                document.querySelector("div.resultado p").innerText = 'VOLTE 1 CASA';
+                document.querySelector("div.resultado p").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+                document.getElementById("certo").setAttribute("disabled","true");
+                document.getElementById("errado").setAttribute("disabled","true");
+                setTimeout(()=>{
+                    document.querySelector("div.resultado p").innerText = '';
+                    document.getElementById("certo").removeAttribute("disabled");
+                    document.getElementById("errado").removeAttribute("disabled");
+                    divc.className = 'carta desrodar';
+                    divc.innerHTML = frente;
+                },8000);
+
+                descartar();
+            });
+        }
+        let frente = '';
+        divc.addEventListener('click', (e)=>{
+            if (i==0) {
+                frente = divc.innerHTML;
+                responder();
+                i++;
+            } else {
+                if (divc.className.includes(' rodar')==true){
+                    divc.className = 'carta desrodar';
+                    divc.innerHTML = frente;
+                } else {
+                    responder();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
