@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="icon" href="src/nova.png" id="icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Fases da Lua</title>
+    <style>
+        .transition {
+            transition: all .3s;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white user-select-none transition">
+    <div class="container text-center py-3">
+        <h1 id="dia-atual"></h1>
+        <h2>Fase atual da lua:</h2>
+
+        <div class="position-absolute top-50 start-50 translate-middle p-4 bg-dark transition"
+            style="border: 3px solid black; border-radius: 12px; box-shadow: 4px 4px black; width: 18.5rem; height: 19.5rem;">
+            <h2 id="nome-fase" class="mb-5 text-decoration-underline"></h2>
+            <img src="" alt="" id="img-fase" width="120" />
+            <div class="mt-2">
+                <span>Próxima lua cheia: <span id="proxima_cheia"></span></span><br>
+                <span>Próxima lua nova: <span id="proxima_nova"></span></span>
+            </div>
+        </div>
+
+        <div class="position-absolute bottom-0 end-0 pe-3">
+            <p class="input-group-text fw-light text-white bg-dark transition">© VINÍCIUS DE SÁ FERREIRA</p>
+        </div>
+    </div>
+
+    <script>
+        let hoje = new Date();
+        let dia = hoje.getDate() < 10 ? "0" + hoje.getDate() : hoje.getDate();
+        let mes = hoje.getMonth() < 10 ? "0" + (hoje.getMonth() + 1) : (hoje.getMonth() + 1);
+        $("#dia-atual").text(dia + "/" + mes);
+
+        let A = parseInt(hoje.getFullYear().toString().substr(2));
+        let D = hoje.getDate();
+        let M = hoje.getMonth() + 1;
+
+        let fase_lua = ((A + 2) * 11 + D + M) % 30;
+
+        if (fase_lua >= 0 && fase_lua <= 6 || fase_lua > 28) {
+            $("#nome-fase").text("Lua Nova");
+            $("#img-fase")[0].src = "src/nova.png";
+            $("#img-fase")[0].alt = "Lua Nova";
+            $("#img-fase")[0].title = "Lua Nova";
+            $("#icon")[0].href = "src/nova.png";
+            document.title = "Lua Nova | Fases da Lua";
+        } else if (fase_lua > 6 && fase_lua <= 13) {
+            $("#nome-fase").text("Lua Crescente");
+            $("#img-fase")[0].src = "src/crescente.png";
+            $("#img-fase")[0].alt = "Lua Crescente";
+            $("#img-fase")[0].title = "Lua Crescente";
+            $("#icon")[0].href = "src/crescente.png";
+            document.title = "Lua Crescente | Fases da Lua";
+        } else if (fase_lua > 13 && fase_lua <= 20) {
+            $("#nome-fase").text("Lua Cheia");
+            $("#img-fase")[0].src = "src/cheia.png";
+            $("#img-fase")[0].alt = "Lua Cheia";
+            $("#img-fase")[0].title = "Lua Cheia";
+            $("#icon")[0].href = "src/cheia.png";
+            document.title = "Lua Cheia | Fases da Lua";
+        } else if (fase_lua > 20 && fase_lua <= 28) {
+            $("#nome-fase").text("Lua Minguante");
+            $("#img-fase")[0].src = "src/minguante.png";
+            $("#img-fase")[0].alt = "Lua Minguante";
+            $("#img-fase")[0].title = "Lua Minguante";
+            $("#icon")[0].href = "src/minguante.png";
+            document.title = "Lua Minguante | Fases da Lua";
+        }
+
+        let clicked = false;
+        document.onclick = function () {
+            if (!clicked) {
+                $.map($(".bg-dark"), (k, i) => {
+                    $(k).removeClass("bg-dark");
+                    $(k).addClass("bg-light");
+                    $(k).removeClass("text-white");
+                    $(k).addClass("text-black");
+                });
+            } else {
+                $.map($(".bg-light"), (k, i) => {
+                    $(k).removeClass("bg-light");
+                    $(k).addClass("bg-dark");
+                    $(k).removeClass("text-black");
+                    $(k).addClass("text-white");
+                });
+            }
+            clicked = !clicked;
+        }
+
+        let data = new Date();
+        let lua_nova = false;
+        let lua_cheia = false;
+        (function () {
+            for (let i = 1; i < 30; i++) {
+                data = new Date(data.valueOf() + (24 * 60 * 60 * 1000));
+                A = parseInt(data.getFullYear().toString().substr(2));
+                D = data.getDate();
+                M = data.getMonth() + 1;
+
+                fase_lua = ((A + 2) * 11 + D + M) % 30;
+                console.log(D+"/"+M, fase_lua);
+                if (lua_nova === false && (fase_lua == 29)) {
+                    lua_nova = true;
+                    dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();
+                    mes = data.getMonth() < 10 ? "0" + (data.getMonth() + 1) : (data.getMonth() + 1);
+                    $("#proxima_nova").text(dia+"/"+mes);
+                }
+                if (lua_cheia === false && (fase_lua == 14)) {
+                    lua_cheia = true;
+                    dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();
+                    mes = data.getMonth() < 10 ? "0" + (data.getMonth() + 1) : (data.getMonth() + 1);
+                    $("#proxima_cheia").text(dia+"/"+mes);
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

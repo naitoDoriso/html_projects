@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="src/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="src/jquery-3.6.1.min.js"></script>
+    <script src="index.js"></script>
+    <title>Math</title>
+</head>
+<body>
+    <nav class="d-inline-flex w-100">
+        <ul id="fases" class="list-group flex-row" style="list-style: none;">
+            <li><img src="src/checkbox.png" alt="In progress..." class="neutral"></li>
+            <li><img src="src/checkbox.png" alt="In progress..." class="neutral"></li>
+            <li><img src="src/checkbox.png" alt="In progress..." class="neutral"></li>
+            <li><img src="src/checkbox.png" alt="In progress..." class="neutral"></li>
+            <li><img src="src/checkbox.png" alt="In progress..." class="neutral"></li>
+        </ul>
+
+        <h2 class="href text-center position-absolute start-50 translate-middle" style="margin-top: 16px">Mathhh</h2>
+    </nav>
+
+    <section id="sec-1" style="display: none;">
+        <h2 id="href" class="href">/Multiplicação</h2>
+        <button id="load-game" class="btn btn-primary fs-3 px-4 position-absolute top-50 start-50 translate-middle">START</button>
+    </section>
+
+    <section id="sec-2">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:transparent;display:block;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="50" cy="50" fill="none" stroke="#cecece" stroke-width="7" r="35" stroke-dasharray="164.93361431346415 56.97787143782138">
+                  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+                </circle>
+            </svg>
+        </div>
+    </section>
+
+    <section id="sec-3" style="display: none;" class="position-absolute top-50 start-50 translate-middle text-center">
+        <h2 id="timer">0.000</h2>
+        <h2 id="equation" class="justify-content-center d-flex flex-row align-items-center"><span id="termo"></span><input type="number" class="ms-2 mt-1 w-50 form-control" id="result"></h2>
+        <h4 id="msg"></h4>
+        <button class="btn btn-primary fs-5 px-3 mt-4 position-absolute translate-middle" id="next" style="display:none;">PRÓXIMO</button>
+
+        <h1 id="final" style="display: none;"></h1>
+        <button class="btn btn-primary p-3 mt-1" id="retry" style="display:none;"><span class="material-symbols-outlined">sync</span></button>
+        <button class="btn btn-primary p-3 mt-1" id="home" style="display:none;"><span class="material-symbols-outlined">home</span></button>
+    </section>
+</body>
+</html>

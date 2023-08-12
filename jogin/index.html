@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botão Vermelho</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="logo.png">
+</head>
+<body>
+<div class="container">
+  <div class="inicial">
+    <img src="mouse.png" id="img1">
+    <span id="text1">OU</span>
+    <img src="mouse.png" id="img2">
+    <span id="text2">+</span>
+    <img src="spacebar.png" id="img3">
+    <span id="fechar" onclick="document.querySelector('.inicial').remove();localStorage.setItem('closed','true')">X</span>
+  </div>
+  <button id="redButton" class="round-button"><input type="text" id="nro" maxlength="5" draggable="false"></button>
+  <div id="beauty"></div>
+  <div id="beauty-2"></div>
+  <div id="messageBox" class="message-box"></div>
+  <div id="recorde"></div>
+  <div id="tempo"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

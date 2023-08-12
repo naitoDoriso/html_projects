@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="icon" href="icon.png" id="icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Tarefas Diárias</title>
+    <style>
+        .transition {
+            transition: all .3s;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white user-select-none transition">
+    <div class="container py-3">
+        <h2 class="text-center">Tarefas Diárias:</h2>
+
+        <div class="position-absolute top-50 start-50 p-3 translate-middle bg-dark transition"
+            style="border: 3px solid black; border-radius: 12px; box-shadow: 4px 4px black; width: 23rem; height: 30rem;">
+            <h2 class="text-center">:)</h2>
+            <div class="position-absolute top-50 start-50 translate-middle" style="width: fit-content">
+                <div class="form-check">
+                    <label for="zazen-manha" class="form-check-label">Zazen da Manhã | 11:00</label>
+                    <input type="checkbox" class="form-check-input" id="zazen-manha">
+                </div>
+                <div class="form-check">
+                    <label for="cafe-tarde" class="form-check-label">Café da Tarde | 15:00</label>
+                    <input type="checkbox" class="form-check-input" id="cafe-tarde">
+                </div>
+                <div class="form-check">
+                    <label for="leitura-tarde" class="form-check-label">Leitura da Tarde | 15:30</label>
+                    <input type="checkbox" class="form-check-input" id="leitura-tarde">
+                </div>
+                <div class="form-check">
+                    <label for="zazen-noite" class="form-check-label">Zazen da Noite | 18:00</label>
+                    <input type="checkbox" class="form-check-input" id="zazen-noite">
+                </div>
+            </div>
+        </div>
+
+        <div class="position-absolute bottom-0 end-0 pe-3 footer">
+            <p class="input-group-text fw-light text-white bg-dark transition">© VINÍCIUS DE SÁ FERREIRA</p>
+        </div>
+    </div>
+
+    <script>
+        if (localStorage.getItem("json")) {
+            let json = JSON.parse(localStorage.getItem("json"));
+
+            let dia = new Date().getDate()<10 ? "0"+new Date().getDate() : new Date().getDate();
+            let mes = (new Date().getMonth()+1)<10 ? "0"+(new Date().getMonth()+1) : (new Date().getMonth()+1);
+            if ((dia+"/"+mes) != json.dia) {
+                localStorage.removeItem("json");
+            } else {
+                json.checked.map(x => {
+                    $("#"+x)[0].checked = true;
+                });
+            }
+        }
+        $("input[type=checkbox]").click(function(){
+            let dia = new Date().getDate()<10 ? "0"+new Date().getDate() : new Date().getDate();
+            let mes = (new Date().getMonth()+1)<10 ? "0"+(new Date().getMonth()+1) : (new Date().getMonth()+1);
+            let json = {checked: [], dia: dia+"/"+mes};
+            let checked = $("input[type=checkbox]:checked");
+            $.map(checked, (k, i)=>{
+                json.checked.push(k.id);
+            });
+            localStorage.setItem("json", JSON.stringify(json));
+        });
+
+        let clicked = false;
+        $(".footer").click(function () {
+            if (!clicked) {
+                $.map($(".bg-dark"), (k, i) => {
+                    $(k).removeClass("bg-dark");
+                    $(k).addClass("bg-light");
+                    $(k).removeClass("text-white");
+                    $(k).addClass("text-black");
+                });
+            } else {
+                $.map($(".bg-light"), (k, i) => {
+                    $(k).removeClass("bg-light");
+                    $(k).addClass("bg-dark");
+                    $(k).removeClass("text-black");
+                    $(k).addClass("text-white");
+                });
+            }
+            clicked = !clicked;
+        });
+    </script>
+</body>
+
+</html>

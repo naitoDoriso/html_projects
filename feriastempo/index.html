@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
+    <title>Cronometro para o fim das férias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark" style="transition: all .3s; user-select: none;">
+    <div class="main text-white">
+        <h2 class="text-center mt-2">Tempo restante para o dia 28/07:</h2>
+        <div class="position-absolute top-50 start-50" style="transform: translate(-50%)">
+            <h1 id="timer" class="text-center" style="min-width: 100vw;"></h1>
+        </div>
+    </div>
+    <script>
+        (function () {
+            let start = new Date();
+            let fim = new Date('2022-07-28T00:00:00');
+
+            let total_segundos = fim.valueOf() - start.valueOf();
+            if (total_segundos <= 0) {
+                document.querySelector("#timer").innerText = "A diferença de data é negativa.";
+                return false;
+            }
+
+            function setTimer(contador, run_one_time = false) {
+                let intervalo = setInterval(() => {
+                    start = new Date();
+                    fim = new Date('2022-07-28T00:00:00');
+
+                    total_segundos = fim.valueOf() - start.valueOf();
+                    if (total_segundos <= 0) {
+                        document.querySelector("#timer").innerText = "A diferença de data é negativa.";
+                        return false;
+                    }
+
+                    let dias = total_segundos / (1000 * 60 * 60 * 24);
+                    let horas = dias % 1 * 24;
+                    let minutos = horas % 1 * 60;
+                    let segundos = minutos % 1 * 60;
+                    let timertxt = "";
+
+                    if (dias < 10) {
+                        dias = "0" + Math.floor(dias);
+                    } else {
+                        dias = Math.floor(dias);
+                    }
+                    if (horas < 10) {
+                        horas = "0" + Math.floor(horas);
+                    } else {
+                        horas = Math.floor(horas);
+                    }
+                    if (minutos < 10) {
+                        minutos = "0" + Math.floor(minutos);
+                    } else {
+                        minutos = Math.floor(minutos);
+                    }
+                    if (segundos < 10) {
+                        segundos = "0" + Math.floor(segundos);
+                    } else {
+                        segundos = Math.floor(segundos);
+                    }
+
+                    if (dias>0) {
+                        if (dias < 10) {
+                            dias = "0" + Math.floor(dias);
+                        } else {
+                            dias = Math.floor(dias);
+                        }
+                        timertxt += dias + " dias ";
+                    }
+                    timertxt += horas + ":";
+                    timertxt += minutos + ":";
+                    timertxt += segundos;
+
+                    document.querySelector("#timer").innerHTML = timertxt+"<br>Praticamente "+(parseInt(dias)+1)+" dias";
+                    document.title = "Faltam " + timertxt;
+
+                    if (run_one_time == true) {
+                        clearInterval(intervalo);
+                    }
+                }, contador);
+            }
+
+            setTimer(0, true);
+            setTimer(1000);
+        })();
+
+        let toggle = false;
+        document.addEventListener("click", function(){
+            if (toggle==false){
+                document.body.className = "bg-white";
+                document.querySelector(".main").className = "main text-black";
+            }
+            if (toggle==true){
+                document.body.className = "bg-dark";
+                document.querySelector(".main").className = "main text-white";
+            }
+            toggle = !toggle;
+        });
+    </script>
+</body>
+
+</html>

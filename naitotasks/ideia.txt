@@ -1,0 +1,16 @@
+Geração aleatória de tempo para as seguintes especialidades:
+Meditação
+Exercício ou Alongamento (radio input)
+Leitura
+
+Confirmação do NF do dia anterior:
+se não -> punição (10min ~ 1h30min para computador e 30min ~ 3h sem celular)
+se sim -> alguma recompensa (talvez 10min ~ 20min de gameplay)
+
+*PENSAMENTOS*
+Colocar uma frase motivacional na tela inicial pegada de alguma API json;
+Colocar login;
+Colocar um settings pra delimitar os limites mínimos e máximos de tempo para as especialidades;
+Fazer um wallpaper com https:// em preto e dourado pra sempre se lembrar que o site existe e não esquecer de usar ele;
+Ir liberando as especialiadades de acordo com a conclusão da anterior (tipo fazer OK para meditação para aí liberar pegar o tempo de exercício ou alongamento etc.);
+Botão de settings tremer em vermelho quando clicado sem login;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png">
+    <title>Double Range Rand</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="values">
+                <span class="range-1">
+                    5
+                </span>
+                <span> - </span>
+                <span class="range-2">
+                    180
+                </span>
+            </div>
+            <div class="slider-track"></div>
+            <input type="range" id="slider-1" min="5" max="180" value="10" oninput="sliderOne()">
+            <input type="range" id="slider-2" min="5" max="180" value="30" oninput="sliderTwo()">
+            <input type="button" value="RANDOM" id="btn">
+        </div>
+    </div>
+    <div class="msg closed" style="display: none;">
+        <div class="bg"></div>
+        <div class="englobe">
+            <h1>SHORTCUTS</h1>
+            <span id="close" title="close">
+                X
+            </span>
+            <p>
+                m - MEDITATION (5min - 15min)
+            </p>
+            <p>
+                e - EXERCISES (10 rep - 50 rep)
+            </p>
+            <p>
+                s - STRETCHES (5min - 10min)
+            </p>
+            <p>
+                r - READING (10 pg - 30 pg)
+            </p>
+            <p>
+                c - COMPUTER (15min - 1h30min)
+            </p>
+            <p>
+                C - CELLPHONE (1h30min - 3h)
+            </p>
+        </div>
+    </div>
+    <div class="rand closed" style="display: none;">
+        <div class="bg2"></div>
+        <div class="englobe2">
+            <h1>RAND</h1>
+            <span id="close" title="close">
+                X
+            </span>
+            <p id="result">
+               
+            </p>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
