@@ -124,6 +124,8 @@
         const tipo = document.getElementById("tipo");
         const casasA = document.getElementById("casas+");
         const casasR = document.getElementById("casas-");
+        let avanco = 0;
+        let retorno = 0;
         const pergunta = document.getElementById("pergunta");
         const header = document.getElementById("header");
 
@@ -193,18 +195,24 @@
             tipo.textContent = 'FÁCIL';
             casasA.textContent = '+0 CASAS';
             casasR.textContent = '-1 CASA';
+            avanco = 'AVANCE 0 CASAS';
+            retorno = 'VOLTE 1 CASA';
             get_pergunta();
         } else if (difficulty == 'medium') {
             document.title = 'Carta Médio | PCP';
             tipo.textContent = 'MÉDIO';
             casasA.textContent = '+0 CASAS';
             casasR.textContent = '-2 CASAS';
+            avanco = 'AVANCE 0 CASAS';
+            retorno = 'VOLTE 2 CASAS';
             get_pergunta();
         } else if (difficulty == 'hard') {
             document.title = 'Carta Difícil | PCP';
             tipo.textContent = 'DIFÍCIL';
             casasA.textContent = '+0 CASAS';
             casasR.textContent = '-3 CASAS';
+            avanco = 'AVANCE 0 CASAS';
+            retorno = 'VOLTE 3 CASAS';
             get_pergunta(true);
         } else {
             location.replace('../')
@@ -237,7 +245,7 @@
             document.querySelector("#certo").addEventListener('click', (e)=>{
                 e.preventDefault();
                 e.stopPropagation();
-                document.querySelector("div.resultado p").innerText = 'AVANCE 1 CASA';
+                document.querySelector("div.resultado p").innerText = avanco;
                 document.querySelector("div.resultado p").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 document.getElementById("certo").setAttribute("disabled","true");
                 document.getElementById("errado").setAttribute("disabled","true");
@@ -254,7 +262,7 @@
             document.querySelector("#errado").addEventListener('click', (e)=>{
                 e.preventDefault();
                 e.stopPropagation();
-                document.querySelector("div.resultado p").innerText = 'VOLTE 1 CASA';
+                document.querySelector("div.resultado p").innerText = retorno;
                 document.querySelector("div.resultado p").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 document.getElementById("certo").setAttribute("disabled","true");
                 document.getElementById("errado").setAttribute("disabled","true");
