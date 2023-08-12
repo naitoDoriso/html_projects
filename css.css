@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
 
-html, body{
+html,body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
     background: linear-gradient(to bottom, #adb1f3, #5867a1);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    height: 100%;
-    margin: 0;
     overflow: hidden;
     font-family: 'Open Sans', sans-serif;;
 }

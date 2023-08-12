@@ -8,95 +8,189 @@
     <title>Jogo de Tabuleiro | PCP</title>
 
     <style>
-        
         :root {
-            --dado_width: 1200px;
             --dado_left: 0%;
+            --dado_left_mb: 0%;
         }
 
-        .centro{
-            width: 800px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            justify-content: center;
+        @media (max-width:800px) {
+            .centro {
+                width: 88.609%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                justify-content: center;
+            }
+
+            .centro > div#btns {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cartas, .dados{
+                background-color: #acb1f7;
+                color: black;
+                border-radius: 8px;
+                border: 2px solid #2e4278;
+                height: 45px;
+                width: 100%;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 30px;
+                font-weight: bold;
+                text-decoration: none;
+                transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .dados{
+                margin-top: 10px;
+            }
+
+            .dados:disabled {
+                opacity: 30%;
+            }
+
+            .cartas:hover, .dados:hover{
+                background-color: #666a90;
+                color: white;
+                border-radius: 8px;
+                border: 2px solid #2e4278;
+                height: 55px;
+                width: 101%;
+            }
+
+            .bloco{
+                display: flex;
+                margin: 0 auto;
+                margin-top: 50px;
+                background-color: #acb1f7;
+                position: relative;
+                height: 120px;
+                width: 120px;
+                border: 3px solid #2e4278;
+                border-radius: 8px;
+                justify-items: center;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            .bloco::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: var(--dado_left_mb);
+                background-image: url('./dados_pattern.png');
+                width: 677px;
+                height: 120px;
+                background-size: 677px 111px;
+                transition: left .5s ease-in-out;
+            }
+            
+            #texto_bloco{
+                font-size: 70px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
 
-        .centro > div#btns {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+        @media (min-width:801px) {
+            .centro {
+                width: 800px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                justify-content: center;
+            }
+
+            .centro > div#btns {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cartas, .dados{
+                background-color: #acb1f7;
+                color: black;
+                border-radius: 8px;
+                border: 2px solid #2e4278;
+                height: 75px;
+                width: 100%;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 30px;
+                font-weight: bold;
+                text-decoration: none;
+                transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+            }
+
+            .dados{
+                margin-top: 10px;
+            }
+
+            .cartas:hover, .dados:hover{
+                background-color: #666a90;
+                color: black;
+                border-radius: 8px;
+                border: 2px solid #2e4278;
+                height: 85px;
+                width: 101%;
+            }
+
+            .bloco{
+                display: flex;
+                margin: 0 auto;
+                margin-top: 50px;
+                background-color: #acb1f7;
+                position: relative;
+                height: 200px;
+                width: 200px;
+                border: 3px solid #2e4278;
+                border-radius: 8px;
+                justify-items: center;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            .bloco::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: var(--dado_left);
+                background-image: url('./dados_pattern.png');
+                width: 1200px;
+                height: 200px;
+                background-size: 1182px 186px;
+                transition: left .5s ease-in-out;
+            }
+            
+            #texto_bloco{
+                font-size: 70px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .btn {
+                width: 100%;
+            }
         }
 
-        .cartas, .dados{
-            background-color: #acb1f7;
-            color: black;
-            border-radius: 8px;
-            border: 2px solid #2e4278;
-            height: 75px;
-            width: 100%;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-        }
-
-        .dados{
-            margin-top: 10px;
-        }
-
-        .cartas:hover, .dados:hover{
-            background-color: #666a90;
-            color: black;
-            border-radius: 8px;
-            border: 2px solid #2e4278;
-            height: 85px;
-            width: 101%;
-        }
-
-        .bloco{
-            display: flex;
-            margin: 0 auto;
-            margin-top: 50px;
-            background-color: #acb1f7;
-            position: relative;
-            height: 200px;
-            width: 200px;
-            border: 3px solid #2e4278;
-            border-radius: 8px;
-            justify-items: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .bloco::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: var(--dado_left);
-            background-image: url('./dados_pattern.png');
-            width: var(--dado_width);
-            height: 200px;
-            background-size: 1182px 186px;
-            transition: left .5s ease-in-out;
-        }
         
-        #texto_bloco{
-            font-size: 70px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .btn {
-            width: 100%;
-        }
-
         @keyframes rodar {
             0% {
                 transform: rotate(0deg);

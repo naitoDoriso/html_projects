@@ -8,68 +8,153 @@
     <link rel="stylesheet" href="css.css">
     <title>Carta ... | PCP</title>
     <style>
-        body {
-            overflow: auto!important;
+        @media (max-width:800px)  {
+            body {
+                overflow: hidden;
+            }
+
+            body > a {
+                display: block;
+                padding: 8px;
+                color: white;
+            }
+
+            .carta {
+                width: 320px;
+                height: 460px;
+                padding: 5px 8px;
+                border-radius: 8px;
+                text-align: center;
+                margin: 2em auto;
+                position: relative;
+                box-shadow: 0 6px;
+            }
+
+            .rodar {
+                animation: rodar 1s normal forwards ease-in-out;
+            }
+
+            .desrodar {
+                animation: desrodar 1s normal forwards ease-in-out;
+            }
+
+            #certo, #errado {
+                transition: opacity .1s ease-in-out;
+                padding: 8px 16px;
+                border: 0;
+                outline: 0;
+                color: rgba(0,0,0,.5);
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color .3s ease-in-out;
+            }
+
+            #certo {
+                margin-right: 10px;
+            }
+
+            #certo:hover {
+                background-color: rgb(96, 255, 96);
+            }
+
+            #errado:hover {
+                background-color: rgb(255, 71, 71);
+            }
+
+            .carta ul {
+                list-style: none;
+                padding: 0;
+                text-align: left;
+                width: fit-content;
+                margin: 20px 40px;
+            }
+
+            #pergunta ul li:hover {
+                background-color: rgba(0,0,0,.1);
+            }
         }
 
-        body > a {
-            display: block;
-            padding: 8px;
-            color: white;
+        @media (max-height:613px) {
+            .carta {
+                width: 440px;
+                height: 260px;
+                font-size: 14px;
+                margin-top: 0.4em;
+            }
+
+            #header {
+                margin-top: 15px!important;
+            }
+
+            #answer {
+                margin-top: 32px!important;
+            }
         }
 
-        .carta {
-            width: 320px;
-            height: 460px;
-            padding: 5px 8px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 2em auto;
-            position: relative;
-            box-shadow: 0 6px;
-        }
+        @media (min-width:801px) {
+            body {
+                overflow: auto!important;
+            }
 
-        .rodar {
-            animation: rodar 1s normal forwards ease-in-out;
-        }
+            body > a {
+                display: block;
+                padding: 8px;
+                color: white;
+            }
 
-        .desrodar {
-            animation: desrodar 1s normal forwards ease-in-out;
-        }
+            .carta {
+                width: 320px;
+                height: 460px;
+                padding: 5px 8px;
+                border-radius: 8px;
+                text-align: center;
+                margin: 2em auto;
+                position: relative;
+                box-shadow: 0 6px;
+            }
 
-        #certo, #errado {
-            transition: opacity .1s ease-in-out;
-            padding: 8px 16px;
-            border: 0;
-            outline: 0;
-            color: rgba(0,0,0,.5);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color .3s ease-in-out;
-        }
+            .rodar {
+                animation: rodar 1s normal forwards ease-in-out;
+            }
 
-        #certo {
-            margin-right: 10px;
-        }
+            .desrodar {
+                animation: desrodar 1s normal forwards ease-in-out;
+            }
 
-        #certo:hover {
-            background-color: rgb(96, 255, 96);
-        }
+            #certo, #errado {
+                transition: opacity .1s ease-in-out;
+                padding: 8px 16px;
+                border: 0;
+                outline: 0;
+                color: rgba(0,0,0,.5);
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color .3s ease-in-out;
+            }
 
-        #errado:hover {
-            background-color: rgb(255, 71, 71);
-        }
+            #certo {
+                margin-right: 10px;
+            }
 
-        .carta ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            width: fit-content;
-            margin: 20px 40px;
-        }
+            #certo:hover {
+                background-color: rgb(96, 255, 96);
+            }
 
-        #pergunta ul li:hover {
-            background-color: rgba(0,0,0,.1);
+            #errado:hover {
+                background-color: rgb(255, 71, 71);
+            }
+
+            .carta ul {
+                list-style: none;
+                padding: 0;
+                text-align: left;
+                width: fit-content;
+                margin: 20px 40px;
+            }
+
+            #pergunta ul li:hover {
+                background-color: rgba(0,0,0,.1);
+            }
         }
 
         @keyframes rodar {

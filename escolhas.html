@@ -21,85 +21,182 @@
             list-style: none;
         }
 
-        .drop-box {
-            background-color: rgb(255, 61, 61);
-            padding: 20px 20px;
-            border-radius: 8px;
-            width: 25%;
-            text-align: center;
-            position: absolute;
-            margin-top: 20px;
-            flex-basis: 100%;
-            top: 50vh;
-            right: -8%;
-            box-shadow: 5px 5px 20px -10px black;
+        @media (max-height:500px) {
+            body > h1 {
+                margin-top: 20px!important;
+            }
         }
 
-        .drop-box::after {
-            content: '';
-            display: block;
-            width: 0px;
-            height: 0px;
-            border: 10px solid rgb(255, 61, 61);
-            border-left-color: transparent;
-            border-right-color: transparent;
-            border-top-color: transparent;
-            position: absolute;
-            top: -20px;
-            left: 20px;
-        }
-        
-        .drop-box li {
-            margin-bottom: 14px;
-            width: 100%;
-            cursor: pointer;
+        @media (max-width:900px) {
+            .drop-box {
+                background-color: rgb(255, 61, 61);
+                padding: 20px 20px;
+                border-radius: 8px;
+                width: 25%;
+                text-align: center;
+                position: absolute;
+                margin-top: 20px;
+                flex-basis: 100%;
+                top: 50vh;
+                right: 8%;
+                box-shadow: 5px 5px 20px -10px black;
+            }
+
+            .drop-box::after {
+                content: '';
+                display: block;
+                width: 0px;
+                height: 0px;
+                border: 10px solid rgb(255, 61, 61);
+                border-left-color: transparent;
+                border-right-color: transparent;
+                border-top-color: transparent;
+                position: absolute;
+                top: -20px;
+                right: 20px;
+            }
+            
+            .drop-box li {
+                margin-bottom: 14px;
+                width: 100%;
+                cursor: pointer;
+            }
+
+            .drop-box li:nth-child(2) {
+                margin-bottom: 0;
+            }
+
+            .drop-box li a {
+                color: rgba(0, 0, 0, 0.6);
+                padding: 5px 0;
+                width: 100%;
+                border-radius: 5px;
+                display: block;
+                font-size: 17px;
+            }
+
+            .drop-box li a:hover {
+                background-color: rgba(0,0,0,.087);
+                color: white;
+            }
+
+            #main {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                position: relative;
+                width: 358px;
+                height: 100%;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            #main button {
+                outline: 0;
+                border: 0;
+                padding: 10px 16px;
+                color: rgba(0, 0, 0, 0.4);
+                font-size: 20px;
+                text-transform: uppercase;
+                border-radius: 7px;
+                cursor: pointer;
+                transition: border .1s ease-in-out;
+                box-shadow: 0 6px;
+            }
+
+            #main button:focus {
+                border: 6px solid rgba(255, 255, 255, .6);
+            }
+
+            body > h1 {
+                font-size: 68px!important;
+            }
         }
 
-        .drop-box li:nth-child(2) {
-            margin-bottom: 0;
-        }
+        @media (min-width:901px) {
+            .drop-box {
+                background-color: rgb(255, 61, 61);
+                padding: 20px 20px;
+                border-radius: 8px;
+                width: 25%;
+                text-align: center;
+                position: absolute;
+                margin-top: 20px;
+                flex-basis: 100%;
+                top: 50vh;
+                right: -8%;
+                box-shadow: 5px 5px 20px -10px black;
+            }
 
-        .drop-box li a {
-            color: rgba(0, 0, 0, 0.6);
-            padding: 5px 0;
-            width: 100%;
-            border-radius: 5px;
-            display: block;
-            font-size: 17px;
-        }
+            .drop-box::after {
+                content: '';
+                display: block;
+                width: 0px;
+                height: 0px;
+                border: 10px solid rgb(255, 61, 61);
+                border-left-color: transparent;
+                border-right-color: transparent;
+                border-top-color: transparent;
+                position: absolute;
+                top: -20px;
+                left: 20px;
+            }
+            
+            .drop-box li {
+                margin-bottom: 14px;
+                width: 100%;
+                cursor: pointer;
+            }
 
-        .drop-box li a:hover {
-            background-color: rgba(0,0,0,.087);
-            color: white;
-        }
+            .drop-box li:nth-child(2) {
+                margin-bottom: 0;
+            }
 
-        #main {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            position: relative;
-            width: 790px;
-            height: 100%;
-            margin: 0 auto;
-        }
+            .drop-box li a {
+                color: rgba(0, 0, 0, 0.6);
+                padding: 5px 0;
+                width: 100%;
+                border-radius: 5px;
+                display: block;
+                font-size: 17px;
+            }
 
-        #main button {
-            outline: 0;
-            border: 0;
-            padding: 28px 40px;
-            color: rgba(0, 0, 0, 0.4);
-            font-size: 30px;
-            text-transform: uppercase;
-            border-radius: 7px;
-            cursor: pointer;
-            transition: border .1s ease-in-out;
-            box-shadow: 0 6px;
-        }
+            .drop-box li a:hover {
+                background-color: rgba(0,0,0,.087);
+                color: white;
+            }
 
-        #main button:focus {
-            border: 6px solid rgba(255, 255, 255, .6);
+            #main {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                position: relative;
+                width: 790px;
+                height: 100%;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            #main button {
+                outline: 0;
+                border: 0;
+                padding: 28px 40px;
+                color: rgba(0, 0, 0, 0.4);
+                font-size: 30px;
+                text-transform: uppercase;
+                border-radius: 7px;
+                cursor: pointer;
+                transition: border .1s ease-in-out;
+                box-shadow: 0 6px;
+            }
+
+            #main button:focus {
+                border: 6px solid rgba(255, 255, 255, .6);
+            }
         }
 
         a {
