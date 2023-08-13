@@ -225,45 +225,62 @@
         xhttp.open("GET", "../db.json", true);
         xhttp.send();
         
+        let rand = -1;
+        let cartas = [];
         let rand_question = {};
         let get_pergunta = (is_hard=false) => {
             setTimeout(() => {
-                let rand = Math.floor(Math.random()*json[difficulty].length);
-                rand_question = json[difficulty][rand];
-
-                if (is_hard == false) {
-                    if (rand_question.type == 'alt') {
-                        header.innerHTML = "<b>Pergunta Objetiva:</b>";
-                        pergunta.innerHTML = rand_question.question+'<br>'+`
-                        <ul>
-                            <li>A. ${rand_question.a}</li>
-                            <li>B. ${rand_question.b}</li>
-                            <li>C. ${rand_question.c}</li>
-                            <li>D. ${rand_question.d}</li>
-                        </ul>`;
-                    } else {
-                        header.innerHTML = "<b>Pergunta Discursiva:</b>";
-                        pergunta.textContent = rand_question.question;
-                    }
+                if (localStorage.getItem("descartadas") && difficulty != "hard"){
+                    cartas = json[difficulty].filter((x)=>!JSON.parse(localStorage.getItem("descartadas"))[difficulty].includes(x.id));
+                } else if (localStorage.getItem("descartadas") && difficulty == "hard") {
+                    cartas = json[difficulty].filter((x)=>x.type==localStorage.getItem("type_hard")).filter((x)=>!JSON.parse(localStorage.getItem("descartadas"))[difficulty][localStorage.getItem("type_hard")].includes(x.id));
                 } else {
-                    if (localStorage.getItem("type_hard") == 'alt') {
-                        rand = Math.floor(Math.random()*json[difficulty].filter((x)=>x.type=='alt').length);
-                        rand_question = json[difficulty].filter((x)=>x.type=='alt')[rand];
+                    cartas = json[difficulty];
+                }
+                rand = Math.floor(Math.random()*cartas.length);
+                rand_question = cartas[rand];
 
-                        header.innerHTML = "<b>Pergunta Objetiva:</b>";
-                        pergunta.innerHTML = rand_question.question+'<br>'+`
-                        <ul>
-                            <li>A. ${rand_question.a}</li>
-                            <li>B. ${rand_question.b}</li>
-                            <li>C. ${rand_question.c}</li>
-                            <li>D. ${rand_question.d}</li>
-                        </ul>`;
+                if (difficulty != 'hard' && cartas.length == 0) {
+                    pergunta.style.color = 'red';
+                    return pergunta.textContent = 'Erro! Não há mais perguntas de tipo '+tipo.textContent+' no banco de dados.';
+                } else if (difficulty == 'hard' && cartas.length == 0){
+                    pergunta.style.color = 'red';
+                    return pergunta.textContent = 'Erro! Não há mais perguntas '+(localStorage.getItem("type_hard")=="alt"?"objetivas":"de cálculo")+' de tipo '+tipo.textContent+' no banco de dados.';
+                } else {
+                    if (is_hard == false) {
+                        if (rand_question.type == 'alt') {
+                            header.innerHTML = "<b>Pergunta Objetiva:</b>";
+                            pergunta.innerHTML = rand_question.question+'<br>'+`
+                            <ul>
+                                <li>A. ${rand_question.a}</li>
+                                <li>B. ${rand_question.b}</li>
+                                <li>C. ${rand_question.c}</li>
+                                <li>D. ${rand_question.d}</li>
+                            </ul>`;
+                        } else {
+                            header.innerHTML = "<b>Pergunta Discursiva:</b>";
+                            pergunta.textContent = rand_question.question;
+                        }
                     } else {
-                        rand = Math.floor(Math.random()*json[difficulty].filter((x)=>x.type=='calc').length);
-                        rand_question = json[difficulty].filter((x)=>x.type=='calc')[rand];
+                        if (localStorage.getItem("type_hard") == 'alt') {
+                            rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='alt').length);
+                            rand_question = cartas.filter((x)=>x.type=='alt')[rand];
 
-                        header.innerHTML = "<b>Pergunta Final (Cálculo):</b>";
-                        pergunta.textContent = rand_question.question;
+                            header.innerHTML = "<b>Pergunta Objetiva:</b>";
+                            pergunta.innerHTML = rand_question.question+'<br>'+`
+                            <ul>
+                                <li>A. ${rand_question.a}</li>
+                                <li>B. ${rand_question.b}</li>
+                                <li>C. ${rand_question.c}</li>
+                                <li>D. ${rand_question.d}</li>
+                            </ul>`;
+                        } else {
+                            rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='calc').length);
+                            rand_question = cartas.filter((x)=>x.type=='calc')[rand];
+
+                            header.innerHTML = "<b>Pergunta Final (Cálculo):</b>";
+                            pergunta.textContent = rand_question.question;
+                        }
                     }
                 }
             }, 1000);
@@ -305,10 +322,21 @@
 
         let descartar = () => {
             if (localStorage.getItem("descartadas")) {
-
+                let card = JSON.parse(localStorage.getItem("descartadas"));
+                if (difficulty == "hard") {
+                    card[difficulty][localStorage.getItem("type_hard")].push(rand_question.id);
+                } else {
+                    card[difficulty].push(rand_question.id);
+                }
+                localStorage.setItem("descartadas",JSON.stringify(card));
             } else {
-                let card = {"easy": [], "medium": [], "hard": []}
-                localStorage.setItem("descartadas");
+                let card = {"easy": [], "medium": [], "hard": {"alt":[],"calc":[]}};
+                if (difficulty == "hard") {
+                    card[difficulty][localStorage.getItem("type_hard")].push(rand_question.id);
+                } else {
+                    card[difficulty].push(rand_question.id);
+                }
+                localStorage.setItem("descartadas",JSON.stringify(card));
             }
         }
 

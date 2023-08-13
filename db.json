@@ -1,6 +1,7 @@
 {
     "easy": [
         {
+            "id": 0,
             "type": "alt",
             "question": "Qual o segundo nome de Leonardo, o pintor?",
             "a": "De Paura",
@@ -10,6 +11,7 @@
             "correct": "D. Da Vinci"
         },
         {
+            "id": 1,
             "type": "dis",
             "question": "Quantos anos tem desde o lançamento de Bomba Petch?",
             "correct": "16 anos."
@@ -17,6 +19,7 @@
     ],
     "medium": [
         {
+            "id": 0,
             "type": "alt",
             "question": "Qual o segundo nome de Pedro, o profeta?",
             "a": "De Paura",
@@ -26,6 +29,7 @@
             "correct": "D. Da Vinci"
         },
         {
+            "id": 1,
             "type": "dis",
             "question": "Quantos anos tem desde o lançamento de Fifa 2023?",
             "correct": "0 anos."
@@ -33,6 +37,7 @@
     ],
     "hard": [
         {
+            "id": 0,
             "type": "alt",
             "question": "Qual o segundo nome de Alexandre, o grande?",
             "a": "De Paura",
@@ -42,6 +47,7 @@
             "correct": "D. Da Vinci"
         },
         {
+            "id": 1,
             "type": "calc",
             "question": "Quantos anos tem desde o lançamento de PES 2023 + sqrt(235)?",
             "correct": "sqrt(235) anos."
