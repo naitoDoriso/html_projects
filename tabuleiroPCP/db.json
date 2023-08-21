@@ -1,50 +1,418 @@
 {
     "easy": [
         {
+            "id": 0,
             "type": "alt",
-            "question": "Qual o segundo nome de Leonardo, o pintor?",
-            "a": "De Paura",
-            "b": "De Lousiana",
-            "c": "On Montrouse",
-            "d": "Da Vinci",
-            "correct": "D. Da Vinci"
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         },
         {
+            "id": 1,
             "type": "dis",
-            "question": "Quantos anos tem desde o lançamento de Bomba Petch?",
-            "correct": "16 anos."
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 2,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 3,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 4,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 5,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 6,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 7,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 8,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 9,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 10,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 11,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         }
     ],
     "medium": [
         {
+            "id": 0,
             "type": "alt",
-            "question": "Qual o segundo nome de Pedro, o profeta?",
-            "a": "De Paura",
-            "b": "De Lousiana",
-            "c": "On Montrouse",
-            "d": "Da Vinci",
-            "correct": "D. Da Vinci"
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         },
         {
+            "id": 1,
             "type": "dis",
-            "question": "Quantos anos tem desde o lançamento de Fifa 2023?",
-            "correct": "0 anos."
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 2,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 3,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 4,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 5,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 6,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 7,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 8,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 9,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 10,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 11,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 12,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 13,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 14,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 15,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 16,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 17,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 18,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 19,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 20,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 21,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 22,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 23,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 24,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 25,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 26,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 27,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 28,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 29,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         }
     ],
     "hard": [
         {
+            "id": 0,
             "type": "alt",
-            "question": "Qual o segundo nome de Alexandre, o grande?",
-            "a": "De Paura",
-            "b": "De Lousiana",
-            "c": "On Montrouse",
-            "d": "Da Vinci",
-            "correct": "D. Da Vinci"
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         },
         {
-            "type": "calc",
-            "question": "Quantos anos tem desde o lançamento de PES 2023 + sqrt(235)?",
-            "correct": "sqrt(235) anos."
+            "id": 1,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 2,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 3,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 4,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 5,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 6,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 7,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 8,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 9,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         }
     ]
 }

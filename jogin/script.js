@@ -4,19 +4,36 @@ const recorde = document.getElementById("recorde");
 const nro = document.getElementById("nro");
 let record = {tent:Infinity,prob:Infinity};
 const tempo = document.getElementById("tempo");
+const volume = document.getElementById("volume");
+const musga = document.getElementById("musga");
 let s = 0;
 let time = {ht:0,mt:0,st:0};
 let i = 0;
 
 if (localStorage.getItem("closed")) {
   document.querySelector(".inicial").remove();
+  if (localStorage.getItem("volume")) volume.value = parseFloat(localStorage.getItem("volume"))*200;
 }
 
+document.getElementById("actual").textContent = volume.value+'%';
+volume.addEventListener("input", () => {
+  document.getElementById("actual").textContent = volume.value+'%';
+  musga.volume = (volume.value/2)/100;
+  localStorage.setItem("volume", musga.volume);
+});
+
+let unico = 0;
+let permitido = false;
 button.addEventListener("click", () => {
+  if (unico==0 && permitido) {
+    musga.src = 'sountrack.mp3';
+    if (localStorage.getItem("volume")) musga.volume = parseFloat(localStorage.getItem("volume"));
+    else musga.volume = 0.45;
+    unico++;
+  }
   if (s == 0) {
     setInterval(()=>{
       s++;
-      console.log(s);
       if (s<60) {
         time.st = s;
       } else if (s>=60 && s<3600) {
@@ -71,6 +88,7 @@ nro.addEventListener("input", () => {
   else if (nro.value > 99999) window.alert("Não pode ter mais de 5 dígitos >:(");
   if (!(nro.value>0 && nro.value <= 99999)) nro.value = '';
   if (nro.value>0 && nro.value <= 99999) {
+    permitido = true;
     record.tent = Infinity;
     record.prob = Infinity;
   }

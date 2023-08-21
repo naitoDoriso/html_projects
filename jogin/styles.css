@@ -117,11 +117,12 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: rgb(88, 88, 88);
-    margin-top: 154px;
-    margin-left: 380px;
-    padding-top: 600px;
     padding-right: 300px;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     z-index: 3;
   }
 
@@ -129,32 +130,60 @@ body {
     color: white;
     font-size: 60px;
     font-family: sans-serif;
-    position: absolute;
-    top: 680px;
-    margin: 30px 0;
   }
 
   #text1 {
-    margin-left: 46px;
+    margin-left: 32px;
   }
 
   #img2 {
-    margin-left: 170px;
+    margin-left: 100px;
   }
 
   #img3 {
     margin-left: 60px;
-    padding-top: 50px;
+    padding-top: 20px;
   }
 
   #fechar {
-    color: #4a4a4a;
+    color: #ffffff;
     transform: scaleX(110%);
     display: block;
     position: absolute;
-    top: 330px;
-    right: 320px;
+    top: 40px;
+    right: 62px;
     cursor: pointer;
     font-size: 35px;
     font-family: sans-serif;
+  }
+
+  .change-vol {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin-right: 30px;
+  }
+
+  .change-vol:hover {
+    display: flex;
+  }
+
+  .change-vol p {
+    margin: 0;
+    position: absolute;
+    right: -37px;
+  }
+
+  .change-vol label {
+    color: black;
+    transition: color .4s ease-in-out;
+    cursor: pointer;
+  }
+
+  .change-vol label:hover {
+    color: red;
   }

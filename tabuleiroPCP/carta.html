@@ -8,68 +8,153 @@
     <link rel="stylesheet" href="css.css">
     <title>Carta ... | PCP</title>
     <style>
-        body {
-            overflow: auto!important;
+        @media (max-width:900px)  {
+            body {
+                overflow: hidden;
+            }
+
+            body > a {
+                display: block;
+                padding: 8px;
+                color: white;
+            }
+
+            .carta {
+                width: 320px;
+                height: 460px;
+                padding: 5px 8px;
+                border-radius: 8px;
+                text-align: center;
+                margin: 2em auto;
+                position: relative;
+                box-shadow: 0 6px;
+            }
+
+            .rodar {
+                animation: rodar 1s normal forwards ease-in-out;
+            }
+
+            .desrodar {
+                animation: desrodar 1s normal forwards ease-in-out;
+            }
+
+            #certo, #errado {
+                transition: opacity .1s ease-in-out;
+                padding: 8px 16px;
+                border: 0;
+                outline: 0;
+                color: rgba(0,0,0,.5);
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color .3s ease-in-out;
+            }
+
+            #certo {
+                margin-right: 10px;
+            }
+
+            #certo:hover {
+                background-color: rgb(96, 255, 96);
+            }
+
+            #errado:hover {
+                background-color: rgb(255, 71, 71);
+            }
+
+            .carta ul {
+                list-style: none;
+                padding: 0;
+                text-align: left;
+                width: fit-content;
+                margin: 20px 40px;
+            }
+
+            #pergunta ul li:hover {
+                background-color: rgba(0,0,0,.1);
+            }
         }
 
-        body > a {
-            display: block;
-            padding: 8px;
-            color: white;
+        @media (max-height:750px) {
+            .carta {
+                width: 440px;
+                height: 260px;
+                font-size: 14px;
+                margin-top: -2.1em;
+            }
+
+            #header {
+                margin-top: 15px!important;
+            }
+
+            #answer {
+                margin-top: 32px!important;
+            }
         }
 
-        .carta {
-            width: 320px;
-            height: 460px;
-            padding: 5px 8px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 2em auto;
-            position: relative;
-            box-shadow: 0 6px;
-        }
+        @media (min-width:901px) {
+            body {
+                overflow: auto!important;
+            }
 
-        .rodar {
-            animation: rodar 1s normal forwards ease-in-out;
-        }
+            body > a {
+                display: block;
+                padding: 8px;
+                color: white;
+            }
 
-        .desrodar {
-            animation: desrodar 1s normal forwards ease-in-out;
-        }
+            .carta {
+                width: 320px;
+                height: 460px;
+                padding: 5px 8px;
+                border-radius: 8px;
+                text-align: center;
+                margin: 2em auto;
+                position: relative;
+                box-shadow: 0 6px;
+            }
 
-        #certo, #errado {
-            transition: opacity .1s ease-in-out;
-            padding: 8px 16px;
-            border: 0;
-            outline: 0;
-            color: rgba(0,0,0,.5);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color .3s ease-in-out;
-        }
+            .rodar {
+                animation: rodar 1s normal forwards ease-in-out;
+            }
 
-        #certo {
-            margin-right: 10px;
-        }
+            .desrodar {
+                animation: desrodar 1s normal forwards ease-in-out;
+            }
 
-        #certo:hover {
-            background-color: rgb(96, 255, 96);
-        }
+            #certo, #errado {
+                transition: opacity .1s ease-in-out;
+                padding: 8px 16px;
+                border: 0;
+                outline: 0;
+                color: rgba(0,0,0,.5);
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color .3s ease-in-out;
+            }
 
-        #errado:hover {
-            background-color: rgb(255, 71, 71);
-        }
+            #certo {
+                margin-right: 10px;
+            }
 
-        .carta ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            width: fit-content;
-            margin: 20px 40px;
-        }
+            #certo:hover {
+                background-color: rgb(96, 255, 96);
+            }
 
-        #pergunta ul li:hover {
-            background-color: rgba(0,0,0,.1);
+            #errado:hover {
+                background-color: rgb(255, 71, 71);
+            }
+
+            .carta ul {
+                list-style: none;
+                padding: 0;
+                text-align: left;
+                width: fit-content;
+                margin: 20px 40px;
+            }
+
+            #pergunta ul li:hover {
+                background-color: rgba(0,0,0,.1);
+            }
         }
 
         @keyframes rodar {
@@ -124,6 +209,8 @@
         const tipo = document.getElementById("tipo");
         const casasA = document.getElementById("casas+");
         const casasR = document.getElementById("casas-");
+        let avanco = 0;
+        let retorno = 0;
         const pergunta = document.getElementById("pergunta");
         const header = document.getElementById("header");
 
@@ -135,48 +222,65 @@
                 json = this.response;
             }
         }
-        xhttp.open("GET", "../db.json", true);
+        xhttp.open("GET", "../"+localStorage.getItem("db"), true);
         xhttp.send();
         
+        let rand = -1;
+        let cartas = [];
         let rand_question = {};
         let get_pergunta = (is_hard=false) => {
             setTimeout(() => {
-                let rand = Math.floor(Math.random()*json[difficulty].length);
-                rand_question = json[difficulty][rand];
-
-                if (is_hard == false) {
-                    if (rand_question.type == 'alt') {
-                        header.innerHTML = "<b>Pergunta Objetiva:</b>";
-                        pergunta.innerHTML = rand_question.question+'<br>'+`
-                        <ul>
-                            <li>A. ${rand_question.a}</li>
-                            <li>B. ${rand_question.b}</li>
-                            <li>C. ${rand_question.c}</li>
-                            <li>D. ${rand_question.d}</li>
-                        </ul>`;
-                    } else {
-                        header.innerHTML = "<b>Pergunta Discursiva:</b>";
-                        pergunta.textContent = rand_question.question;
-                    }
+                if (localStorage.getItem("descartadas") && difficulty != "hard"){
+                    cartas = json[difficulty].filter((x)=>!JSON.parse(localStorage.getItem("descartadas"))[difficulty].includes(x.id));
+                } else if (localStorage.getItem("descartadas") && difficulty == "hard") {
+                    cartas = json[difficulty].filter((x)=>x.type==localStorage.getItem("type_hard")).filter((x)=>!JSON.parse(localStorage.getItem("descartadas"))[difficulty][localStorage.getItem("type_hard")].includes(x.id));
                 } else {
-                    if (localStorage.getItem("type_hard") == 'alt') {
-                        rand = Math.floor(Math.random()*json[difficulty].filter((x)=>x.type=='alt').length);
-                        rand_question = json[difficulty].filter((x)=>x.type=='alt')[rand];
+                    cartas = json[difficulty];
+                }
+                rand = Math.floor(Math.random()*cartas.length);
+                rand_question = cartas[rand];
 
-                        header.innerHTML = "<b>Pergunta Objetiva:</b>";
-                        pergunta.innerHTML = rand_question.question+'<br>'+`
-                        <ul>
-                            <li>A. ${rand_question.a}</li>
-                            <li>B. ${rand_question.b}</li>
-                            <li>C. ${rand_question.c}</li>
-                            <li>D. ${rand_question.d}</li>
-                        </ul>`;
+                if (difficulty != 'hard' && cartas.length == 0) {
+                    pergunta.style.color = 'red';
+                    return pergunta.textContent = 'Erro! Não há mais perguntas de tipo '+tipo.textContent+' no banco de dados.';
+                } else if (difficulty == 'hard' && cartas.length == 0){
+                    pergunta.style.color = 'red';
+                    return pergunta.textContent = 'Erro! Não há mais perguntas '+(localStorage.getItem("type_hard")=="alt"?"objetivas":"dissertativas")+' de tipo '+tipo.textContent+' no banco de dados.';
+                } else {
+                    if (is_hard == false) {
+                        if (rand_question.type == 'alt') {
+                            header.innerHTML = "<b>Pergunta Objetiva:</b>";
+                            pergunta.innerHTML = rand_question.question+'<br>'+`
+                            <ul>
+                                <li>A. ${rand_question.a}</li>
+                                <li>B. ${rand_question.b}</li>
+                                <li>C. ${rand_question.c}</li>
+                                <li>D. ${rand_question.d}</li>
+                            </ul>`;
+                        } else {
+                            header.innerHTML = "<b>Pergunta Discursiva:</b>";
+                            pergunta.textContent = rand_question.question;
+                        }
                     } else {
-                        rand = Math.floor(Math.random()*json[difficulty].filter((x)=>x.type=='calc').length);
-                        rand_question = json[difficulty].filter((x)=>x.type=='calc')[rand];
+                        if (localStorage.getItem("type_hard") == 'alt') {
+                            rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='alt').length);
+                            rand_question = cartas.filter((x)=>x.type=='alt')[rand];
 
-                        header.innerHTML = "<b>Pergunta Final (Cálculo):</b>";
-                        pergunta.textContent = rand_question.question;
+                            header.innerHTML = "<b>Pergunta Final (Objetiva):</b>";
+                            pergunta.innerHTML = rand_question.question+'<br>'+`
+                            <ul>
+                                <li>A. ${rand_question.a}</li>
+                                <li>B. ${rand_question.b}</li>
+                                <li>C. ${rand_question.c}</li>
+                                <li>D. ${rand_question.d}</li>
+                            </ul>`;
+                        } else {
+                            rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='dis').length);
+                            rand_question = cartas.filter((x)=>x.type=='dis')[rand];
+
+                            header.innerHTML = "<b>Pergunta Final (Dissertativa):</b>";
+                            pergunta.textContent = rand_question.question;
+                        }
                     }
                 }
             }, 1000);
@@ -193,18 +297,24 @@
             tipo.textContent = 'FÁCIL';
             casasA.textContent = '+0 CASAS';
             casasR.textContent = '-1 CASA';
+            avanco = 'AVANCE 0 CASAS';
+            retorno = 'VOLTE 1 CASA';
             get_pergunta();
         } else if (difficulty == 'medium') {
             document.title = 'Carta Médio | PCP';
             tipo.textContent = 'MÉDIO';
             casasA.textContent = '+0 CASAS';
             casasR.textContent = '-2 CASAS';
+            avanco = 'AVANCE 0 CASAS';
+            retorno = 'VOLTE 2 CASAS';
             get_pergunta();
         } else if (difficulty == 'hard') {
             document.title = 'Carta Difícil | PCP';
             tipo.textContent = 'DIFÍCIL';
             casasA.textContent = '+0 CASAS';
             casasR.textContent = '-3 CASAS';
+            avanco = 'AVANCE 0 CASAS';
+            retorno = 'VOLTE 3 CASAS';
             get_pergunta(true);
         } else {
             location.replace('../')
@@ -212,10 +322,21 @@
 
         let descartar = () => {
             if (localStorage.getItem("descartadas")) {
-
+                let card = JSON.parse(localStorage.getItem("descartadas"));
+                if (difficulty == "hard") {
+                    card[difficulty][localStorage.getItem("type_hard")].push(rand_question.id);
+                } else {
+                    card[difficulty].push(rand_question.id);
+                }
+                localStorage.setItem("descartadas",JSON.stringify(card));
             } else {
-                let card = {"easy": [], "medium": [], "hard": []}
-                localStorage.setItem("descartadas");
+                let card = {"easy": [], "medium": [], "hard": {"alt":[],"dis":[]}};
+                if (difficulty == "hard") {
+                    card[difficulty][localStorage.getItem("type_hard")].push(rand_question.id);
+                } else {
+                    card[difficulty].push(rand_question.id);
+                }
+                localStorage.setItem("descartadas",JSON.stringify(card));
             }
         }
 
@@ -237,7 +358,7 @@
             document.querySelector("#certo").addEventListener('click', (e)=>{
                 e.preventDefault();
                 e.stopPropagation();
-                document.querySelector("div.resultado p").innerText = 'AVANCE 1 CASA';
+                document.querySelector("div.resultado p").innerText = avanco;
                 document.querySelector("div.resultado p").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 document.getElementById("certo").setAttribute("disabled","true");
                 document.getElementById("errado").setAttribute("disabled","true");
@@ -254,7 +375,7 @@
             document.querySelector("#errado").addEventListener('click', (e)=>{
                 e.preventDefault();
                 e.stopPropagation();
-                document.querySelector("div.resultado p").innerText = 'VOLTE 1 CASA';
+                document.querySelector("div.resultado p").innerText = retorno;
                 document.querySelector("div.resultado p").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
                 document.getElementById("certo").setAttribute("disabled","true");
                 document.getElementById("errado").setAttribute("disabled","true");

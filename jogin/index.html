@@ -8,15 +8,20 @@
 <link rel="icon" href="logo.png">
 </head>
 <body>
+<div class="change-vol">
+  <label for="volume" onclick="document.getElementById('volume').value = 0;document.getElementById('musga').volume = 0;document.getElementById('actual').textContent = volume.value+'%';">VOLUME:</label>
+  <input type="range" id="volume" value="100" max="120" min="0">
+  <p id="actual"></p>
+</div>
+<div class="inicial">
+  <img src="mouse.png" id="img1">
+  <span id="text1">OU</span>
+  <img src="mouse.png" id="img2">
+  <span id="text2">+</span>
+  <img src="spacebar.png" id="img3">
+  <span id="fechar" onclick="document.querySelector('.inicial').remove();localStorage.setItem('closed','true')">X</span>
+</div>
 <div class="container">
-  <div class="inicial">
-    <img src="mouse.png" id="img1">
-    <span id="text1">OU</span>
-    <img src="mouse.png" id="img2">
-    <span id="text2">+</span>
-    <img src="spacebar.png" id="img3">
-    <span id="fechar" onclick="document.querySelector('.inicial').remove();localStorage.setItem('closed','true')">X</span>
-  </div>
   <button id="redButton" class="round-button"><input type="text" id="nro" maxlength="5" draggable="false"></button>
   <div id="beauty"></div>
   <div id="beauty-2"></div>
@@ -24,6 +29,7 @@
   <div id="recorde"></div>
   <div id="tempo"></div>
 </div>
+<audio id="musga" autoplay loop></audio>
 <script src="script.js"></script>
 </body>
 </html>
