@@ -1,0 +1,127 @@
+html,body {
+    margin: 0;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto:wght@300;500&display=swap');
+
+body {
+    background-color: rgb(245 193 182);
+    color: rgb(52 10 0);
+    font-size: 160%;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+section {
+    height: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+section h2 {
+    margin: 20px 0;
+    font-weight: 400!important;
+}
+
+.pending, .completed, .incompleted {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pending {
+    color: gray;
+}
+
+.completed {
+    color: rgb(71, 236, 71);
+}
+
+.incompleted {
+    color: rgb(236, 71, 71);
+}
+
+.drop-box {
+    background-color: rgb(255 220 212);
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 20px;
+    list-style: none;
+    height: 280px;
+    width: 600px;
+    border-radius: 12px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: height .4s ease-in-out, padding-top .4s ease-in-out;
+}
+
+.drop-box li {
+    margin-bottom: 4px;
+}
+
+.drop-box li:hover {
+    background-color: rgba(0,0,0,.04);
+}
+
+.closed {
+    height: 0px;
+    padding-top: 0px;
+}
+
+#week, #day {
+    cursor: pointer;
+}
+
+#bg {
+    position: absolute;
+    z-index: -2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    opacity: .03;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 60px;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.flex label {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.flex input {
+    margin-bottom: 10px;
+    width: 17px;
+    height: 17px;
+}
+
+#continue {
+    color: rgb(255, 255, 255);
+    font-size: 280%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 0px 10px -7px black;
+    padding: 20px;
+    z-index: -1;
+}
