@@ -212,7 +212,7 @@
         <li><a href="carta.html"><button id="btn-hard" style="background: red">Difícil</button></a></li>
         <ul class="drop-box hidden">
             <li><a href="carta.html">OBJETIVA</a></li>
-            <li><a href="carta.html">CÁLCULO</a></li>
+            <li><a href="carta.html">DISCURSIVA</a></li>
         </ul>
     </ul>
     <script>
@@ -229,8 +229,8 @@
         drop_box.addEventListener("click", (e)=>{
             if (e.target.textContent == 'OBJETIVA') {
                 localStorage.setItem("type_hard","alt");
-            } else if (e.target.textContent == 'CÁLCULO') {
-                localStorage.setItem("type_hard","calc");
+            } else if (e.target.textContent == 'DISCURSIVA') {
+                localStorage.setItem("type_hard","dis");
             }
             e.stopPropagation();
         });

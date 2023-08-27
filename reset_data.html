@@ -1,0 +1,8 @@
+<body>
+    <script>
+        (()=>{
+            localStorage.clear();
+            location.replace(location.href.split('/').filter(x=>x!='').join('/').replace('https:/','https://'));
+        })();
+    </script>
+</body>

@@ -2,55 +2,536 @@
     "easy": [
         {
             "id": 0,
-            "type": "alt",
-            "question": "Qual o segundo nome de Leonardo, o pintor?",
-            "a": "De Paura",
-            "b": "De Lousiana",
-            "c": "On Montrouse",
-            "d": "Da Vinci",
-            "correct": "D. Da Vinci"
+            "type": "dis",
+            "question": "Como é custo operacional e capacidade de carga do modal hidroviário, em relação aos outros?",
+            "correct": "Baixo custo operacional e grande capacidade de carga."
         },
         {
             "id": 1,
+            "type": "alt",
+            "question": "São as regiões em que mais se usa o modal hidroviário:",
+            "a": "Zonas urbanas altamente desenvolvidas.",
+            "b": "Regiões com infraestrutura rodoviária avançada.",
+            "c": "Regiões costeiras e interior com rios navegáveis.",
+            "d": "Áreas sem acesso a recursos hídricos.",
+            "correct": "C. Regiões costeiras e interior com rios navegáveis."
+        },
+        {
+            "id": 2,
             "type": "dis",
-            "question": "Quantos anos tem desde o lançamento de Bomba Petch?",
-            "correct": "16 anos."
+            "question": "Estão dentre as desvantagens do modal hidroviário, comparado com o ferroviário:",
+            "correct": "Maior custo em comparação com o modal ferroviário."
+        },
+        {
+            "id": 3,
+            "type": "alt",
+            "question": "O modal Rodoviário é:",
+            "a": "Um sistema de transporte que utiliza vias navegáveis para movimentar pessoas.",
+            "b": "Um sistema de transporte que utiliza estradas e rodovias para deslocamento de cargas e pessoas.",
+            "c": "Um sistema de transporte que depende exclusivamente de ferrovias.",
+            "d": "Um sistema de transporte subterrâneo composto por túneis de alta velocidade.",
+            "correct": "B. Um sistema de transporte que utiliza estradas e rodovias para deslocamento de cargas e pessoas."
+        },{
+            "id": 4,
+            "type": "alt",
+            "question": "Estão dentre as características do modal rodoviário:",
+            "a": "Baixa flexibilidade de rotas.",
+            "b": "Baixa cobertura geográfica.",
+            "c": "Menor impacto nas entregas porta a porta.",
+            "d": "Facilidade de acesso a áreas remotas e flexibilidade de rotas.",
+            "correct": "D. Facilidade de acesso a áreas remotas e flexibilidade de rotas."
+        },
+        {
+            "id": 5,
+            "type": "alt",
+            "question": "Sobre os tipos de carga do modal rodoviário, está correto:",
+            "a": "Transporta diversos tipos de cargas, como produtos perecíveis, industrializados e maquinário.",
+            "b": "Transporta apenas cargas líquidas.",
+            "c": "Limita-se apenas a cargas de pequeno porte.",
+            "d": "Transporta exclusivamente produtos agrícolas.",
+            "correct": "A. Transporta diversos tipos de cargas, como produtos perecíveis, industrializados e maquinário."
+        },
+        {
+            "id": 6,
+            "type": "alt",
+            "question": "Desvantagens do modal aéreo:",
+            "a": "Dependência climática e restrição a produtos volumosos.",
+            "b": "Grande flexibilidade de rotas.",
+            "c": "Baixa velocidade de transporte e custo elevado.",
+            "d": "Baixa capacidade de carga.",
+            "correct": "A. Dependência climática e restrição a produtos volumosos."
+        },
+        {
+            "id": 7,
+            "type": "dis",
+            "question": "São os tipos de transportes aéreos:",
+            "correct": "Aviões e drones."
+        },
+        {
+            "id": 8,
+            "type": "alt",
+            "question": "Tipos de veículos usados no modal hidroviário:",
+            "a": "Carros e motocicletas.",
+            "b": "Trens de alta velocidade.",
+            "c": "Bicicletas e patinetes elétricos.",
+            "d": "Barcos, navios e embarcações variadas.",
+            "correct": "D. Barcos, navios e embarcações variadas."
+        },
+        {
+            "id": 9,
+            "type": "alt",
+            "question": "Pouca carga no modal rodoviário:",
+            "a": "Indica que o modal rodoviário é incapaz de transportar qualquer tipo de carga.",
+            "b": "Significa que o modal rodoviário é o mais indicado para cargas de grande volume.",
+            "c": "Diz respeito apenas ao transporte de cargas perecíveis.",
+            "d": "Refere-se à limitação de capacidade de carga do modal rodoviário em relação a outros modais, como o ferroviário e o hidroviário.",
+            "correct": "D. Refere-se à limitação de capacidade de carga do modal rodoviário em relação a outros modais, como o ferroviário e o hidroviário."
+        },
+        {
+            "id": 10,
+            "type": "alt",
+            "question": "O modal combinado:",
+            "a": "Indica que o modal rodoviário é sempre utilizado em conjunto com o modal aéreo.",
+            "b": "Significa que o modal rodoviário é utilizado somente em combinação com o modal ferroviário.",
+            "c": "Refere-se à utilização conjunta de diferentes modais de transporte para otimizar a logística e superar limitações.",
+            "d": "Diz respeito apenas à combinação do modal rodoviário com o modal hidroviário.",
+            "correct": "C. Refere-se à utilização conjunta de diferentes modais de transporte para otimizar a logística e superar limitações."
+        },
+        {
+            "id": 11,
+            "type": "dis",
+            "question": "Qual o principal custo com o modal rodoviário?",
+            "correct": "O modal rodoviário apresenta alto custo com combustíveis, principalmente devido ao consumo elevado de diesel."
+        },
+        {
+            "id": 12,
+            "type": "dis",
+            "question": "Qual dos modais apresenta maiores casos de furtos e acidentes?",
+            "correct": "O modal rodoviário está sujeito a riscos como furtos de cargas e acidentes de trânsito."
+        },
+        {
+            "id": 13,
+            "type": "dis",
+            "question": "Qual modal apresenta maior impacto ambiental?",
+            "correct": "O modal rodoviário possui impacto ambiental significativo devido à emissão de poluentes atmosféricos e ao consumo de combustíveis fósseis."
+        },
+        {
+            "id": 14,
+            "type": "alt",
+            "question": "O modal aéreo é mais tecnológico:",
+            "a": "Devido ao uso exclusivo de veículos terrestres.",
+            "b": "Por contar com a utilização de aeronaves equipadas com tecnologia avançada.",
+            "c": "Devido ao baixo consumo de combustível.",
+            "d": "Por depender apenas da infraestrutura rodoviária.",
+            "correct": "B. Por contar com a utilização de aeronaves equipadas com tecnologia avançada."
+        },{
+            "id": 15,
+            "type": "alt",
+            "question": "A infraestrutura do modal aéreo é cara:",
+            "a": "Devido à disponibilidade de aeroportos gratuitos.",
+            "b": "Devido à necessidade de construção e manutenção de aeroportos e pistas de pouso.",
+            "c": "Por não requerer investimentos em infraestrutura.",
+            "d": "Por depender da infraestrutura ferroviária.",
+            "correct": "B. Devido à necessidade de construção e manutenção de aeroportos e pistas de pouso."
+        },
+        {
+            "id": 16,
+            "type": "alt",
+            "question": "Há necessidade de integração com o modal aéreo:",
+            "a": "Não, pois é totalmente independente.",
+            "b": "Sim, pois depende de outros modais para o transporte de passageiros e cargas até os aeroportos.",
+            "c": "Não, pois possui sua própria infraestrutura de transporte terrestre.",
+            "d": "Sim, mas apenas pelo modal ferroviário.",
+            "correct": "B. Sim, pois depende de outros modais para o transporte de passageiros e cargas até os aeroportos."
+        },
+        {
+            "id": 17,
+            "type": "alt",
+            "question": "No modal aéreo, pouco tempo é gasto em deslocamentos devido a:",
+            "a": "Limitações de velocidade das aeronaves.",
+            "b": "Sua agilidade quantitativa.",
+            "c": "Necessidade de transbordos frequentes.",
+            "d": "Baixa capacidade de carga.",
+            "correct": "B. Sua agilidade quantitativa."
+        },
+        {
+            "id": 18,
+            "type": "dis",
+            "question": "Como é o preço da manutenção no Modal Aéreo?",
+            "correct": "A manutenção no modal aéreo é mais cara devido à complexidade das aeronaves e à necessidade de alta segurança."
+        },
+        {
+            "id": 19,
+            "type": "alt",
+            "question": "Como a Logística 4.0 trata os dados:",
+            "a": "De forma tecnológica, abrangendo a entrada, fluxo e saída de dados.",
+            "b": "De forma manual e tradicional.",
+            "c": "De forma isolada, sem integração entre os processos.",
+            "d": "De forma descentralizada, sem o uso de tecnologias.",
+            "correct": "A. De forma tecnológica, abrangendo a entrada, fluxo e saída de dados."
+        },
+        {
+            "id": 20,
+            "type": "alt",
+            "question": "O que é o toyotismo?",
+            "a": "Um brinquedo popular.",
+            "b": "Um tipo de transporte aéreo.",
+            "c": "Uma técnica de agricultura que influenciou a Logística 4.0.",
+            "d": "Um sistema de produção que influenciou a Logística 4.0.",
+            "correct": "D. Um sistema de produção enxuta desenvolvido pela Toyota que influenciou a Logística 4.0."
+        },
+        {
+            "id": 21,
+            "type": "alt",
+            "question": "Onde o termo Logística 4.0 surgiu?",
+            "a": "França.",
+            "b": "China.",
+            "c": "Japão.",
+            "d": "Alemanha.",
+            "correct": "D. Alemanha."
+        },
+        {
+            "id": 22,
+            "type": "dis",
+            "question": "O que é cabotagem doméstica?",
+            "correct": "Cabotagem feita apenas na costa do país."
+        },
+        {
+            "id": 23,
+            "type": "dis",
+            "question": "O que é gasoduto?",
+            "correct": "Tubulação destinada a transportar gases."
         }
     ],
     "medium": [
         {
             "id": 0,
             "type": "alt",
-            "question": "Qual o segundo nome de Pedro, o profeta?",
-            "a": "De Paura",
-            "b": "De Lousiana",
-            "c": "On Montrouse",
-            "d": "Da Vinci",
-            "correct": "D. Da Vinci"
+            "question": "O modal hidroviário é:",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "A. "
         },
         {
             "id": 1,
             "type": "dis",
-            "question": "Quantos anos tem desde o lançamento de Fifa 2023?",
-            "correct": "0 anos."
+            "question": "Vantagens do modal rodoviário:",
+            "correct": "Flexibilidade de rotas e entrega porta a porta."
+        },
+        {
+            "id": 2,
+            "type": "dis",
+            "question": "Principais duas desvantagens do modal rodoviário:",
+            "correct": "Congestionamentos e dependência de combustíveis fósseis."
+        },
+        {
+            "id": 3,
+            "type": "dis",
+            "question": "O modal aéreo é:",
+            "correct": "Um sistema de transporte que utiliza aviões e drones para movimentar pessoas e mercadorias."
+        },{
+            "id": 4,
+            "type": "alt",
+            "question": "Vantagens do modal aéreo:",
+            "a": "Velocidade moderada e alta dependência climática.",
+            "b": "Rapidez e capacidade de alcance global.",
+            "c": "Baixo custo operacional e ampla capacidade de carga.",
+            "d": "Uso exclusivo em áreas urbanas.",
+            "correct": "B. Rapidez e capacidade de alcance global."
+        },
+        {
+            "id": 5,
+            "type": "alt",
+            "question": "Como se dão as conexões entre cidades sem construção de infraestrutura:",
+            "a": "Por meio de vias subterrâneas.",
+            "b": "Através de redes de fibra óptica.",
+            "c": "Utilizando vias navegáveis, como rios e lagos, para o transporte de pessoas e mercadorias.",
+            "d": "Por meio de sistemas de transporte aéreo de curta distância.",
+            "correct": "C. Utilizando vias navegáveis, como rios e lagos, para o transporte de pessoas e mercadorias."
+        },
+        {
+            "id": 6,
+            "type": "alt",
+            "question": "No modal rodivário, de pessoa para pessoa:",
+            "a": "É um sistema de transporte exclusivo para viagens internacionais.",
+            "b": "Refere-se ao transporte de passageiros, seja individual ou em grupos, utilizando estradas e rodovias.",
+            "c": "Diz respeito apenas ao transporte de pessoas por meio de teleféricos.",
+            "d": "Envolve somente o transporte de mercadorias em caminhões.",
+            "correct": "B. Refere-se ao transporte de passageiros, seja individual ou em grupos, utilizando estradas e rodovias."
+        },
+        {
+            "id": 7,
+            "type": "dis",
+            "question": "Qual modal apresenta a maior flexibilidade, quando há infraestrutura?",
+            "correct": "O modal rodoviário é altamente flexível quando há uma boa rede de estradas e rodovias, permitindo acesso direto a diversas localidades."
+        },
+        {
+            "id": 8,
+            "type": "alt",
+            "question": "A agilidade no modal rodoviário:",
+            "a": "Indica que o modal rodoviário é sempre mais lento que os demais.",
+            "b": "Refere-se à capacidade de o modal rodoviário realizar viagens ponto a ponto sem a necessidade de transbordos frequentes.",
+            "c": "Diz respeito apenas ao transporte de cargas de pequeno porte.",
+            "d": "Significa que o modal rodoviário é o mais rápido em velocidade, quantitativamente.",
+            "correct": "B. Refere-se à capacidade de o modal rodoviário realizar viagens ponto a ponto sem a necessidade de transbordos frequentes."
+        },
+        {
+            "id": 9,
+            "type": "alt",
+            "question": "Qual das alternativas corresponde acertivamente ao modal rodoviário?",
+            "a": "O modal rodoviário é o mais utilizado no Brasil e em muitos outros países devido à sua capilaridade e flexibilidade.",
+            "b": "O modal rodoviário é utilizado apenas em áreas urbanas.",
+            "c": "O modal rodoviário é o menos utilizado devido às suas desvantagens.",
+            "d": "O modal rodoviário é exclusivamente voltado para o transporte de carga.",
+            "correct": "A. O modal rodoviário é o mais utilizado no Brasil e em muitos outros países devido à sua capilaridade e flexibilidade."
+        },
+        {
+            "id": 10,
+            "type": "dis",
+            "question": "Como é o consumo de Combustível no Modal Aéreo?",
+            "correct": "O modal aéreo consome muito combustível devido às exigências das aeronaves para manter o voo."
+        },
+        {
+            "id": 11,
+            "type": "dis",
+            "question": "O que é a Logística 4.0:",
+            "correct": "Logística 4.0 é uma abordagem que faz parte da indústria 4.0, focada na rapidez, eficiência e redução de custos na cadeia de suprimentos."
+        },
+        {
+            "id": 12,
+            "type": "alt",
+            "question": "O que é o supply chain?",
+            "a": "Uma tecnologia de automação em transportes.",
+            "b": "Uma cadeia de suprimentos que engloba todos os processos envolvidos na produção, distribuição e entrega de um produto ou serviço.",
+            "c": "Uma forma de transporte exclusiva para produtos perecíveis.",
+            "d": "Uma abordagem de personalização de produtos.",
+            "correct": "B. Uma cadeia de suprimentos que engloba todos os processos envolvidos na produção, distribuição e entrega de um produto ou serviço."
+        },
+        {
+            "id": 13,
+            "type": "alt",
+            "question": "Qual é a diferença entre o foco da supply chain e a Logística 4.0?",
+            "a": "Supply Chain foca apenas na distribuição de produtos.",
+            "b": "Logística 4.0 envolve a integração da internet das coisas, personalização e tratamento tecnológico dos dados.",
+            "c": "Supply Chain não tem relação com tecnologias avançadas.",
+            "d": "Logística 4.0 é um termo mais antigo que não está ligado à indústria 4.0.",
+            "correct": "B. Logística 4.0 envolve a integração da internet das coisas, personalização e tratamento tecnológico dos dados."
+        },
+        {
+            "id": 14,
+            "type": "alt",
+            "question": "Qual é a origem da Logística 4.0?",
+            "a": "Revolução industrial.",
+            "b": "Indústria 4.0.",
+            "c": "Era medieval.",
+            "d": "Era pré-industrial.",
+            "correct": "B. Indústria 4.0."
+        },{
+            "id": 15,
+            "type": "alt",
+            "question": "O que é o monitoramento da cadeia de produção na Logística 4.0?",
+            "a": "Acompanhamento e controle de todos os processos ao longo da cadeia de suprimentos, usando tecnologias avançadas.",
+            "b": "Apenas o controle de estoque.",
+            "c": "Apenas a supervisão de vendas.",
+            "d": "Acompanhamento de um único processo de produção.",
+            "correct": "A. Acompanhamento e controle de todos os processos ao longo da cadeia de suprimentos, usando tecnologias avançadas."
+        },
+        {
+            "id": 16,
+            "type": "alt",
+            "question": "O que é a conexão de todas as partes na Logística 4.0?",
+            "a": "Isolamento dos processos.",
+            "b": "Concentração em apenas um setor da empresa.",
+            "c": "Integração de todos os elementos da cadeia de suprimentos em um ecossistema dentro da empresa.",
+            "d": "Foco apenas no transporte rodoviário.",
+            "correct": "C. Integração de todos os elementos da cadeia de suprimentos em um ecossistema dentro da empresa."
+        },
+        {
+            "id": 17,
+            "type": "dis",
+            "question": "Qual é a relação entre Logística 4.0 e a indústria 4.0?",
+            "correct": "A Logística 4.0 é uma parte da indústria 4.0, focada na otimização da cadeia de suprimentos."
+        },
+        {
+            "id": 18,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 19,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 20,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 21,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 22,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 23,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 24,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 25,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },{
+            "id": 26,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 27,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 28,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 29,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         }
     ],
     "hard": [
         {
             "id": 0,
             "type": "alt",
-            "question": "Qual o segundo nome de Alexandre, o grande?",
-            "a": "De Paura",
-            "b": "De Lousiana",
-            "c": "On Montrouse",
-            "d": "Da Vinci",
-            "correct": "D. Da Vinci"
+            "question": "Qual a porcentagem da utilização do modal rodoviário no território brasileiro?",
+            "a": "25%",
+            "b": "50%",
+            "c": "60%",
+            "d": "75%",
+            "correct": "C. 60%"
         },
         {
             "id": 1,
-            "type": "calc",
-            "question": "Quantos anos tem desde o lançamento de PES 2023 + sqrt(235)?",
-            "correct": "sqrt(235) anos."
+            "type": "dis",
+            "question": "Relação do modal hidroviário com a sustentabilidade e poluição:",
+            "correct": "O modal hidroviário é considerado mais sustentável em comparação com outros modais, como o rodoviário e o aéreo, devido a sua menor emissão de poluentes e menor consumo de energia."
+        },
+        {
+            "id": 2,
+            "type": "alt",
+            "question": "Qual a principal vantagem da cabotagem em relação aos outros transportes hidroviários?",
+            "a": "Custo de aquisição.",
+            "b": "Capacidade de carga.",
+            "c": "Custo de manutenção.",
+            "d": "Facilidade portuária.",
+            "correct": "B. Capacidade de carga."
+        },
+        {
+            "id": 3,
+            "type": "dis",
+            "question": "O que é Logística Reversa?",
+            "correct": "Conjunto de práticas que visam tornar sustentável as práticas comerciais, coletando os resíduos, reciclando-os e restituindo-os na indústria"
+        },{
+            "id": 4,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 5,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 6,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 7,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
+        },
+        {
+            "id": 8,
+            "type": "dis",
+            "question": "",
+            "correct": ""
+        },
+        {
+            "id": 9,
+            "type": "alt",
+            "question": "",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "correct": "D. "
         }
     ]
 }

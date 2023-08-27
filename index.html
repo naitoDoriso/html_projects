@@ -124,7 +124,7 @@
                 align-items: center;
             }
 
-            .cartas, .dados{
+            .cartas, .dados, .change-db{
                 background-color: #acb1f7;
                 color: black;
                 border-radius: 8px;
@@ -142,7 +142,22 @@
                 margin-top: 10px;
             }
 
-            .cartas:hover, .dados:hover{
+            .change-db {
+                opacity: 0;
+                position: absolute;
+                bottom: 10px;
+                width: 90%;
+                transition: opacity .2s ease-in-out;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .change-db:hover {
+                opacity: 1;
+                width: 97%!important;
+            }
+
+            .cartas:hover, .dados:hover, .change-db:hover{
                 background-color: #666a90;
                 color: black;
                 border-radius: 8px;
@@ -219,6 +234,7 @@
             </div>
             <div class="bloco"><p id="texto_bloco"></p></div>
         </div>
+        <button class="change-db">Usar Banco de Dados Oficial</button>
     </body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

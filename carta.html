@@ -89,6 +89,14 @@
             #answer {
                 margin-top: 32px!important;
             }
+
+            .carta div {
+                width: 88%!important;
+                left: 5%;
+                flex-direction: row;
+                display: flex;
+                justify-content: space-between;
+            }
         }
 
         @media (min-width:901px) {
@@ -222,7 +230,7 @@
                 json = this.response;
             }
         }
-        xhttp.open("GET", "../db.json", true);
+        xhttp.open("GET", "../"+localStorage.getItem("db"), true);
         xhttp.send();
         
         let rand = -1;
@@ -245,7 +253,7 @@
                     return pergunta.textContent = 'Erro! Não há mais perguntas de tipo '+tipo.textContent+' no banco de dados.';
                 } else if (difficulty == 'hard' && cartas.length == 0){
                     pergunta.style.color = 'red';
-                    return pergunta.textContent = 'Erro! Não há mais perguntas '+(localStorage.getItem("type_hard")=="alt"?"objetivas":"de cálculo")+' de tipo '+tipo.textContent+' no banco de dados.';
+                    return pergunta.textContent = 'Erro! Não há mais perguntas '+(localStorage.getItem("type_hard")=="alt"?"objetivas":"dissertativas")+' de tipo '+tipo.textContent+' no banco de dados.';
                 } else {
                     if (is_hard == false) {
                         if (rand_question.type == 'alt') {
@@ -266,7 +274,7 @@
                             rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='alt').length);
                             rand_question = cartas.filter((x)=>x.type=='alt')[rand];
 
-                            header.innerHTML = "<b>Pergunta Objetiva:</b>";
+                            header.innerHTML = "<b>Pergunta Final (Objetiva):</b>";
                             pergunta.innerHTML = rand_question.question+'<br>'+`
                             <ul>
                                 <li>A. ${rand_question.a}</li>
@@ -275,10 +283,10 @@
                                 <li>D. ${rand_question.d}</li>
                             </ul>`;
                         } else {
-                            rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='calc').length);
-                            rand_question = cartas.filter((x)=>x.type=='calc')[rand];
+                            rand = Math.floor(Math.random()*cartas.filter((x)=>x.type=='dis').length);
+                            rand_question = cartas.filter((x)=>x.type=='dis')[rand];
 
-                            header.innerHTML = "<b>Pergunta Final (Cálculo):</b>";
+                            header.innerHTML = "<b>Pergunta Final (Discursiva):</b>";
                             pergunta.textContent = rand_question.question;
                         }
                     }
@@ -330,7 +338,7 @@
                 }
                 localStorage.setItem("descartadas",JSON.stringify(card));
             } else {
-                let card = {"easy": [], "medium": [], "hard": {"alt":[],"calc":[]}};
+                let card = {"easy": [], "medium": [], "hard": {"alt":[],"dis":[]}};
                 if (difficulty == "hard") {
                     card[difficulty][localStorage.getItem("type_hard")].push(rand_question.id);
                 } else {
