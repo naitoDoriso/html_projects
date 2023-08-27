@@ -29,6 +29,7 @@ $(function(){
             localStorage.setItem("db","db_teste.json");
             $(".change-db").text("Usar Banco de Dados Oficial");
         }
+        localStorage.removeItem("descartadas");
     });
 
     $("#btn_dados").click(exibeAleatorio);

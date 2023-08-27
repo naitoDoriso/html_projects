@@ -253,7 +253,7 @@
                     return pergunta.textContent = 'Erro! Não há mais perguntas de tipo '+tipo.textContent+' no banco de dados.';
                 } else if (difficulty == 'hard' && cartas.length == 0){
                     pergunta.style.color = 'red';
-                    return pergunta.textContent = 'Erro! Não há mais perguntas '+(localStorage.getItem("type_hard")=="alt"?"objetivas":"dissertativas")+' de tipo '+tipo.textContent+' no banco de dados.';
+                    return pergunta.textContent = 'Erro! Não há mais perguntas '+(localStorage.getItem("type_hard")=="alt"?"OBJETIVAS":"DISCURSIVAS")+' de tipo '+tipo.textContent+' no banco de dados.';
                 } else {
                     if (is_hard == false) {
                         if (rand_question.type == 'alt') {
@@ -400,6 +400,7 @@
         }
         let frente = '';
         divc.addEventListener('click', (e)=>{
+            if (cartas.length == 0) return void(0);
             if (i==0) {
                 frente = divc.innerHTML;
                 responder();
