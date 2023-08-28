@@ -357,100 +357,12 @@
         {
             "id": 18,
             "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 19,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },{
-            "id": 20,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 21,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },
-        {
-            "id": 22,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 23,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },
-        {
-            "id": 24,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 25,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },{
-            "id": 26,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 27,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 28,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },
-        {
-            "id": 29,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
+            "question": "Sobre a Logística 4.0, assinale a alternativa INCORRETA:",
+            "a": "Na Logística 4.0 ocorre a Descentralização: quando um sistema realiza decisões automaticamente, de forma descentralizada.",
+            "b": "Os custos altos da implementação da Logística 4.0 ainda afastam muitos gestores.",
+            "c": "Implementação sem estratégia e planejamento adequado faz com que a empresa perca dinheiro e não veja os resultados da aplicação na prática.",
+            "d": "A Logística 4.0 não é dependente da utilização de softwares e tecnologias de ponta.",
+            "correct": "D. A Logística 4.0 não é dependente da utilização de softwares e tecnologias de ponta."
         }
     ],
     "hard": [
@@ -485,53 +397,6 @@
             "type": "dis",
             "question": "O que é Logística Reversa?",
             "correct": "Conjunto de práticas que visam tornar sustentável as práticas comerciais, coletando os resíduos, reciclando-os e restituindo-os na indústria"
-        },{
-            "id": 4,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 5,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },
-        {
-            "id": 6,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },
-        {
-            "id": 7,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
-        },
-        {
-            "id": 8,
-            "type": "dis",
-            "question": "",
-            "correct": ""
-        },
-        {
-            "id": 9,
-            "type": "alt",
-            "question": "",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "D. "
         }
     ]
 }
