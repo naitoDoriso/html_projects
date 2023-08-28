@@ -208,11 +208,11 @@
             "id": 0,
             "type": "alt",
             "question": "O modal hidroviário é:",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "correct": "A. "
+            "a": "Um sistema de transporte que utiliza vias navegáveis para movimentar cargas e passageiros.",
+            "b": "Um sistema de transporte que utiliza vias navegáveis para movimentar pessoas.",
+            "c": "Um sistema de transporte baseado em túneis subaquáticos.",
+            "d": "Um sistema de transporte que utiliza estradas e rodovias para deslocamento de cargas.",
+            "correct": "A. Um sistema de transporte que utiliza vias navegáveis para movimentar cargas e passageiros."
         },
         {
             "id": 1,
