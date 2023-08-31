@@ -1,10 +1,16 @@
-if (!localStorage.getItem("config")) {
-    localStorage.setItem("config", 3);
+﻿if (!localStorage.getItem("config_w")) {
+    localStorage.setItem("config_w", 3);
+}
+if (!localStorage.getItem("config_d")) {
+    localStorage.setItem("config_d", 2);
 }
 
 document.addEventListener("keydown", (e)=>{
     if (e.code == "Semicolon" && e.ctrlKey) {
-        localStorage.setItem("config", window.prompt("Quantas meditações por semana?"));
+        localStorage.setItem("config_w", window.prompt("Quantas meditações por semana?"));
+    }
+    if (e.code == "Quote" && e.ctrlKey) {
+        localStorage.setItem("config_d", window.prompt("Quantas meditações por dia? (cada 1 tem 5min)"));
     }
 });
 
@@ -56,7 +62,7 @@ if (localStorage.getItem("data_user")) {
         let day_string = `${hoje.getDate()<10?'0'+hoje.getDate():hoje.getDate()}/${hoje.getMonth()+1<10?'0'+(hoje.getMonth()+1):hoje.getMonth()+1}/${hoje.getFullYear().toString().substr(2,4)<10?'0'+hoje.getFullYear().toString().substr(2,4):hoje.getFullYear().toString().substr(2,4)}`;
         
         document.getElementById("day_today").innerHTML = day_string;
-        document.getElementById("week").innerHTML = document.getElementById("week").innerHTML.replace('SEMANA ...',`SEMANA ${week}`).replaceAll('...', Object.values(data_user.days).filter(x=>x=='completed').length>parseInt(localStorage.getItem("config"))-1 ? 'completed' : (day_of_week==7&&data_user.days[7]!='pending' ? 'incompleted' : 'pending'));
+        document.getElementById("week").innerHTML = document.getElementById("week").innerHTML.replace('SEMANA ...',`SEMANA ${week}`).replaceAll('...', Object.values(data_user.days).filter(x=>x=='completed').length>parseInt(localStorage.getItem("config_w"))-1 ? 'completed' : (day_of_week==7&&data_user.days[7]!='pending' ? 'incompleted' : 'pending'));
         document.getElementById("day").innerHTML = document.getElementById("day").innerHTML.replace('DIA ...', `DIA ${day_of_week}`).replaceAll('...', data_user.days[day_of_week]);
 
         document.querySelector(".drop-box").innerHTML = "";
@@ -129,7 +135,7 @@ if (localStorage.getItem("checkbox-daily")) {
         x.addEventListener("input", ()=>{
             let ids = [...document.querySelectorAll("input[type=checkbox]:checked")].map(x=>x.id);
             checkboxes.ids = ids;
-            if (ids.length == 8) {
+            if (ids.length == parseInt(localStorage.getItem("config_d"))) {
                 checkboxes.ids = [];
                 data_user.days[day_of_week] = 'completed';
                 location.reload();
